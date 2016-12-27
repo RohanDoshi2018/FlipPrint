@@ -5,12 +5,15 @@ from werkzeug.utils import secure_filename
 from pdfrw import PdfReader, PdfWriter
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = '/uploads/'
 
+# Serve the homepage, a static file
 @app.route("/")
 def index():
 	return app.send_static_file('index.html')
 
+# Split the uploaded file into two seperate temporary
+# files (odd and even pages). Save these files in the
+# /static/temp folder. 
 @app.route("/upload", methods=['POST'])
 def upload():
 	file = request.files['file']
@@ -33,7 +36,7 @@ def upload():
 		for even in even_range[::-1]:
 		    evendata.addpage(pages[even-1])
 		evendata.write('static/temp/' + request.form['id']  + '_even.pdf')
-	elif request.form['printer_type'] == "laser": # incorrect
+	elif request.form['printer_type'] == "laser":
 		odd_range = list(range(1,num_pages+1,2))
 		even_range = list(range(2,num_pages+1,2))
 
@@ -52,11 +55,14 @@ def upload():
 
 	return json.dumps({'success':True}), 200, {'ContentType':'application/json'} 
 
+# Serve the temporary PDF documents, which are static file
 @app.route('/<path:path>')
 def static_proxy(path):
 	# send_static_file will guess the correct MIME type
 	return app.send_static_file(path)
 
+# Delete server-side temporary PDF files associated with a 
+# unique 32-bit client-browser-instance ID.
 @app.route("/delete", methods=['POST'])
 def delete():
 	odd_path = 'static/temp/' + request.json['id'] + '_odd.pdf'
@@ -68,6 +74,7 @@ def delete():
 		pass
 	return json.dumps({'success':True}), 200, {'ContentType':'application/json'} 
 
+# Run the server app
 if __name__ == "__main__":
 	app.debug = True
 	app.run()

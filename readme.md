@@ -1,7 +1,6 @@
-Written By: Rohan Doshi
-
 # FlipPrint
 ### Double-sided printing with a single-sided printer.
+Created By: Rohan Doshi
 
 Printing long documents with double-sided printing prevents paper waste. However, printing double-sided documents with a single-sided printer is often confusing. Nobody wants to:
 
@@ -20,7 +19,7 @@ First, the user selects his type of printer (to enable us to customize the instr
 
 #### Design Decision 2: No JavaScript Front-end Framework
 1. Adds unecessary complexity to a web-app with only three pages
-2. jQuery is sufficient for handling HTTP POST/GET request to Flask Backend
+2. jQuery is sufficient for handling HTTP POST/GET request to the Flask backend
 
 #### Other  Considerations:
 1. Memory - Given limited and temporary server-side memory (~4 GB), my server-side code automatically deletes the two temporary server-side PDf files for each upload upon the closing of the client (through a call to the /delete endpoint). This is enabled by generating a 32-bit unique ID that maps each client browser instance to two server-side temporary files.
