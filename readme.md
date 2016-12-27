@@ -18,6 +18,6 @@ Design Decision 2: No JavaScript Front-end Framework
 2) jQuery is sufficient for handling HTTP POST/GET request to Flask Backend
 
 Other Development Considerations
-1) Security - Need to prevent unauthorized access of static documents via Flask server endpoitns
+1) Security - Need to prevent unauthorized access of static documents via Flask server endpoints
 
 
