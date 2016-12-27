@@ -4,6 +4,7 @@ Written By: Rohan Doshi
 ### Double-sided printing with a single-sided printer.
 
 Printing long documents with double-sided printing prevents paper waste. However, printing double-sided documents with a single-sided printer is often confusing. Nobody wants to:
+
 1. Read confusing, wordy descriptions
 2. Manually seperate even and odd pages 
 3. Figure out whether to reverse the ordering of the even or odd pages
