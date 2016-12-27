@@ -1,0 +1,56 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>FlipPrint</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://printjs-4de6.kxcdn.com/print.min.css">
+<link href="https://fonts.googleapis.com/css?family=Lobster|Raleway" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/index.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="title center">FlipPrint</div>
+    <div class="subtitle">Double-sided printing with a single-sided printer.</div>
+    <div class="row select_printer">
+        <div class="instruction center">Choose your type of printer:</div>
+        <div class="row">
+            <div id="inkjet" class="col-xs-6 printer_img_border printer_img_border_selected">
+                <img src="/inkjet_printer.png" id="inkjet_img" class="printer_img" data-content="Prints sheets face up" rel="popover" data-placement="left" data-original-title="InkJet Printer" data-trigger="hover">
+            </div>
+            <div id="laser" class="col-xs-6 printer_img_border">
+                <img src="/laser_printer.png" id="laser_img" class="printer_img" data-content="Prints sheets face down" rel="popover" data-placement="right" data-original-title="Laser Printer" data-trigger="hover">
+            </div>
+        </div>
+    </div>
+
+    <div class="upload_file">
+        <span class="glyphicon glyphicon-arrow-left back_btn" onclick="go_home()"></span>
+        <div class="instruction center">Choose a PDF:</div>        
+        <div class="center">
+            <form enctype="multipart/form-data" id="upload_form" action="/upload" class="center_form">
+                <label class="fileContainer">
+                    <span class="glyphicon glyphicon-cloud-upload"> </span> Select a File
+                    <input type="file" name="file" id="file_input" />
+                </label>
+                <input type="hidden" id="hidden_id" name="id">
+                <input type="hidden" id="hidden_printer_type" name="printer_type">
+            </form>
+        </div>
+        <div class="center" id="upload_err_msg"></div>
+    </div>
+
+    <div class="output">
+        <span class="glyphicon glyphicon-arrow-left back_btn" onclick="go_home()"></span>
+        <div class="instruction center">1. Print the <span id="odd_print" class="print_link">odd pages</span></div>
+        <div class="instruction center">2. Put printed paper stack back into tray FACE-UP with top of page AWAY from you</div>
+        <div class="instruction center">3. Print the <span id="even_print" class="print_link">even pages</span></div> 
+    </div>
+</div>
+<script src="/index.js"></script>
+</body>
+</html>
