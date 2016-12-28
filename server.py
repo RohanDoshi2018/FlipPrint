@@ -1,7 +1,6 @@
 import os
 import json
-from flask import Flask, request, render_template, redirect
-from werkzeug.utils import secure_filename
+from flask import Flask, request
 from pdfrw import PdfReader, PdfWriter
 
 app = Flask(__name__)
