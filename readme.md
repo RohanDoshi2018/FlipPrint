@@ -2,9 +2,9 @@
 ### Double-sided printing with a single-sided printer.
 Created By: Rohan Doshi
 
-Double-sided printing of long PDF documents prevents paper waste. However, printing double-sided documents with a single-sided printer is often confusing. Nobody wants to:
-
 Demo: http://flipprint.pythonanywhere.com
+
+Double-sided printing of long PDF documents prevents paper waste. However, printing double-sided documents with a single-sided printer is often confusing. Nobody wants to:
 
 1. Read confusing, wordy instructions
 2. Manually separate even and odd pages 
